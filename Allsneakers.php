@@ -1,0 +1,3 @@
+<?php
+include('ligacao.php');
+?>

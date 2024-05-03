@@ -1,8 +1,8 @@
-/*Reset document */
 *{
     margin:0;
     padding: 0;
 }
+
 
 body{
     font-size: 100%;
@@ -11,17 +11,17 @@ body{
 
 div, section, header, span, ul, li, a{
     box-sizing: border-box;
+    
+
+}
+p{
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
 }
 
-/* Configurações */
-
-header {
-    width: 100%;
-    height: 0.4%;
-    display: flex;
-    justify-content: space-between;
-    padding: 1em 0.5em;
-    align-items:se;
+.icon{
+    color:black
 
 }
 
@@ -56,7 +56,8 @@ header{
 }
 
 #logo{ 
-    max-height: 8rem;
+    max-height: 20rem;
+    align-items: right;
 }
 
 section{
@@ -84,8 +85,16 @@ section{
     text-align: center;
     padding: 10rem;
 
+
    
 }
+
+#allsneakers {
+    font-family: 'Goblin One';
+    background-color: white;
+    text-align: right;
+    float: right;
+  }
 
 #contactos{
     background-color: white;
@@ -125,11 +134,12 @@ section{
 }
 
 .container {
-    width: 100%;
+    width: 80%;
     height: 100%;
     max-width: 726px;
     min-width: 320px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .img-container {
@@ -144,12 +154,12 @@ section{
 .img360 {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0;                         
     line-height: 0;
 }
 
 img {
-    width: 100%;
+    width: 35%;
     margin: 0;
     padding: 0;
 }
@@ -162,3 +172,107 @@ img {
     scale:1.02;
     rotate: 2deg;  
 }
+
+.productImage{
+    height: 100rem;
+    width: 100rem;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#product_viewer {
+	max-width: 50%;
+	margin: 200px auto;
+}
+
+#product_viewer img {
+	margin: 0;
+    display: flex;
+	width: 100%;
+    padding-right: 10rem;
+}
+h2 {
+    text-align: center;
+}
+#tamanho {
+    margin-bottom: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    color: black;
+}
+header ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header ul li {
+    margin-right: 20px;
+}
+header ul li:last-child {
+    margin-right: 0;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20px;
+}
+.product-details {
+    position: absolute;
+    flex: 1;
+    right: 3px;
+    padding: 18rem;
+    bottom: 15rem;
+}
+.product-image {
+    flex: 1;
+    padding-left: 20px;
+    max-width: 150%;
+}
+#product_viewer {
+    max-width: 150%;
+}
+#compraForm {
+    margin-top: 20px;
+}
+#preco {
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nike-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+   
+  .nike-button:hover {
+    background-color: gray;
+  }
