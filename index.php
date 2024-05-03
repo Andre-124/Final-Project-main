@@ -8,16 +8,17 @@ include('ligacao.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raining Drip</title>
-    <link rel="stylesheet" href="fds.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="icon" href="images/Design sem nome (6).png">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type='text/javascript' src='js/jquery.touchSwipe.min.js'></script>
     <script src="js/slideshow.js" defer></script>
     <script src="https://kit.fontawesome.com/cc217ac7a1.js" crossorigin="anonymous"></script>
-    <link href='https://fonts.googleapis.com/css?family=Goblin One' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Sedan+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fds.css">
 </head>
-<body>
+<body>  
 
 <header>
     <ul id="menu">        
