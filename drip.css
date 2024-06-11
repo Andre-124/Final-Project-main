@@ -1,0 +1,377 @@
+/* Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+header {
+  z-index: 2000;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header ul li {
+  margin-right: 20px;
+}
+
+header ul li:last-child {
+  margin-right: 0;
+}
+
+header #logo {
+  height: 50px;
+  margin-left: 20px;
+}
+
+#inicio{
+  background-image: url(images/Design\ sem\ nome\ \(9\).png);
+  background-attachment: fixed;
+  height: 80vh;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#slideshow {
+  padding-top: 2em;
+  width: 100%;
+  height: 50vh;
+}
+
+#slideshow img {
+  width: 100%;
+}
+
+#sneakers {
+  background-color: white;
+  text-align: center;
+  padding: 5em;
+  display: inline-block;
+  height: fit-content;
+}
+
+#cards {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card_sneakers {
+  border-radius: 5px;
+  color: black;
+  margin: 1em;
+  transition: 0.3s;
+  width: 30%;
+  height: 100%;
+  display: inline-block;
+  text-align: left;
+  border: 2px solid black;
+  padding: 1em;
+  text-decoration: none;
+}
+
+.card_sneakers img {
+  border-radius: 5px 5px 0px 0px;
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 16/9;
+  height: 30%;
+}
+
+.card_sneakers a {
+  text-decoration: none;
+  color: black;
+}
+
+.card_sneakers:hover {
+  scale: 1.02;
+  rotate: 2deg;
+}
+
+#sobrenos {
+  text-align: center;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sbLeft {
+  width: 50%;
+  padding: 0 2em;
+  text-align: left;
+}
+
+#sbRight {
+  width: 50%;
+  padding: 3em 2em;
+  text-align: right;
+}
+
+/* Menu */
+
+header {
+    width: 100%;
+    background-color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#logoSite{
+  padding: 0;
+  margin: 0;
+}
+
+#menu, #login-register {
+  justify-content: center;
+  align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+#login-register li {
+    margin: 0;
+}
+
+#menu a, #login-register a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+#logo {
+    height: 50px;
+    margin: 0 20px;
+}
+
+main {
+    padding-top: 80px; 
+}
+
+header.scrolled {
+    background-color: #222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+body {
+  zoom: 80%;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: white;
+}
+
+/* Menu Styles */
+
+#menu li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;  
+}
+
+#menu li a {
+  color: black;
+  padding: 0.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+#menu li:hover {
+  color: black;
+  background-color: white;
+}
+
+#allsneakers_title{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/* Product Viewer Styles */
+
+.product-image img{
+  margin: 0;
+  padding: 0;
+}
+
+#product_viewer {
+  max-width: 50%;
+  margin-left: 200px;
+}
+
+#product_viewer img {
+  cursor: w-resize;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  padding-right: 10rem;
+}
+
+/* Login/Register Styles */
+
+#login {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+#login h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#login form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+#login input[type="text"],
+#login input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#login input[type="submit"]:hover {
+  background-color: #4cae4c;
+}
+
+/*Pesquisa*/
+
+.Container_Pesquisa{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 6%;
+  width: 100%;
+  background-color: white;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-container input[type="text"] {
+  border: none;
+}
+
+/*Visualização do Carrinho*/
+
+.Container_Carrinho{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  padding: 30px;
+}
+
+.cart-item-details {
+  display: inline;
+  flex-direction: column;
+}
+
+.cart-item-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-item-size,
+.cart-item-price {
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.cart-item-action {
+  display: flex;
+  align-items: center;
+}
+
+.remove-button {
+  background-color: #ff6347;
+  color: white;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
+  background-color: #ff4500;
+}
+
+.continue-shopping {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #1e90ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.continue-shopping:hover {
+  background-color: #1c86ee;
+}

@@ -5,10 +5,14 @@
     }
 
     $servidor = "localhost";
-    $bd = "rainingdrip";
+    $bd = "raining_drip";
     $user = "root";
     $password = "";
 
-    $ligacao = mysqli_connect($servidor, $user, $password, $bd, 3306);
-    
+    $ligacao = mysqli_connect($servidor, $user, $password, $bd);
+
+    if (!$ligacao) {
+        die("Erro de conexão: ". mysqli_connect_error());
+    }
+
 ?>
