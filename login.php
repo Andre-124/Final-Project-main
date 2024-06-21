@@ -1,8 +1,8 @@
 <?php
 session_start();
 $servername = "localhost";
-$username = "root"; // substitua pelo seu usuário do MySQL
-$password = ""; // substitua pela sua senha do MySQL
+$username = "root";
+$password = ""; 
 $dbname = "raining_drip";
 
 // Conectar ao banco de dados
@@ -36,17 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // Exibir mensagem e redirecionar
             echo "<script>
-                    alert('Login successful! Redirecting to homepage...');
+                    alert('Login feito! A redirecionar para a Página Inicial...');
                     window.location.href = 'index.php';
                   </script>";
             exit();
         } else {
-            echo "Invalid password.";
+          echo "<script> alert('Password inválida'); </script>";
         }
     } else {
-        echo "No user found with that username.";
+      echo "<script> alert('Nenhum utilizador encontrado com esse Username.'); </script>";
     }
-
     // Fechar a declaração
     $stmt->close();
 }
@@ -61,10 +60,12 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Raining Drip</title>
+    <link rel="icon" href="images/Design sem nome (6).png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <style>
-    /* Login/Register Styles */
+    /* Login Estilo */
 
 body {
   font-family: Arial, sans-serif;
@@ -72,10 +73,14 @@ body {
 #Drip_login {
     display: flex;
     justify-content: center;
+    height: 78.5vh;
+    width: 100%;
+    background-image: url("images/Design sem nome (9).png");
 }
 
 header img {
   width: 100px;
+  margin-left: 10px;
 }
 
 #login {
@@ -85,6 +90,9 @@ header img {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 300px;
+  height: fit-content;
+  top: 20%;
+  position: absolute;
 }
 
 #login h1 {
@@ -93,39 +101,42 @@ header img {
 }
 
 #login form {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
 #login label {
+  width: 100%;
   margin-bottom: 5px;
   font-weight: bold;
   align-self: flex-start;
+  text-align: left;
 }
 
 #login input[type="text"],
 #login input[type="password"] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 #login input[type="submit"] {
-  background-color: #5cb85c;
+  background-color: #0a6ed7;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
+  width: 100%;
   transition: background-color 0.3s ease;
+  margin-bottom: 20px;
 }
 
 #login input[type="submit"]:hover {
-  background-color: #4cae4c;
+  background-color: #3f4969;
 }
+
+
 </style>
 <body>
 
@@ -145,5 +156,8 @@ header img {
         <p>Não tens conta? <a href="register.php">Regista-te</a></p>
     </section>
     </div>
+    <?php
+        include('footer.php');
+    ?>
 </body>
 </html>

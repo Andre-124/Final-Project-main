@@ -22,9 +22,7 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
 </head>
 </head>
 <body>
-
-<?php include('cabecalho.php'); ?>
-
+    <?php include('cabecalho.php'); ?>
     <section id="inicio"></section>
     <section id="slideshow">
         <img class="mySlides" src="images/1.png" alt="Slideshow Image 1">
@@ -43,7 +41,7 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
             ?>
                 <div class="card_sneakers">
                     <a href="sneakers.php?cod=<?= $produto['Codproduto'] ?>">
-                        <img src="images/<?= $produto['imagens'] ?>" alt="<?= $produto['Nome'] ?>">
+                        <img src="images/<?= $produto['ImagemRef'] ?>" alt="<?= $produto['Nome'] ?>">
                         <div class="card_container">
                             <h4><?= $produto['Nome'] ?></h4>
                             <h5><?= $produto['Preco'] ?>€</h5>
@@ -65,6 +63,19 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
             </p>
         </div>
     </section>
-
+    <section id="contactos">
+        <h1>Contactos</h1>
+        <div class="social-icons"> 
+            <i class="fa-solid fa-envelope"></i>
+            <p href="mailto:exemplo@email.com">rainingdrip@email.com </p>
+        
+            <i class="fa-brands fa-whatsapp"></i>
+            <p href="tel:+351912345678">+351 969 314 628 </p>
+        
+            <i class="fa-brands fa-instagram"></i>
+            <p href="https://www.instagram.com/seu_perfil" target="_blank">@raining_drip </p>
+         </div>
+    </section> 
+    <?php include('footer.php'); ?>
 </body>
 </html>

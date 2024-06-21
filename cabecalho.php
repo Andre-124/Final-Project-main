@@ -34,20 +34,30 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
 <header>
 <script src="https://kit.fontawesome.com/cc217ac7a1.js" crossorigin="anonymous"></script>
     <ul id="menu">        
-        <li id='logoSite'><a href="index.php"><img id="logo" src="images/Design sem nome (6).png" alt="Site's logo"></a></li>
-        <li><a href="#sobrenos">Sobre Nós</a></li>
-        <li><a href="#sneakers">Sneakers</a></li>
-        <li><a href="#contatos">Contactos</a></li>
-        <li><a href="login.php">Login</a></li>
-        <li><a href="register.php">Registo</a></li>
-        <li><a href="ver_carrinho.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+        <li id='logoSite'><a href="index.php#inicio"><img id="logo" src="images/Design sem nome (6).png" alt="Site's logo"></a></li>
+        <li><a href="index.php#sobrenos">Sobre Nós</a></li>
+        <li><a href="Allsneakers.php">Sneakers</a></li>
+        <li><a href="index.php#contactos">Contactos</a></li>
     </ul>
 
 
     <div class="search-container">
         <form id="searchForm" action="" method="get">
-            <input style='border-radius: 4px; padding: 5px;' type="text" name="query" value="<?= htmlspecialchars($query) ?>" placeholder="Pesquisa...">
-            <button style='border-radius: 4px; padding: 5px;' type="submit">Procurar</button>
+            <input style='padding: 5px;' type="text" name="query" value="<?= htmlspecialchars($query) ?>" placeholder="Pesquisa...">
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
+        <a href="ver_carrinho.php" class="cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <?php if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])): ?>
+                <span class="badge"><?php echo count($_SESSION['carrinho']); ?></span>
+            <?php endif; ?>
+        </a>
+        <?php if (isset($_SESSION['username'])): ?>
+        <a id="welcomeMsg" href=""><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+        <a href="logout.php" id="logoutBtn"><i class="fa-solid fa-right-to-bracket"></i></a>
+        <?php else: ?>
+            <a href="login.php" id="loginBtn">Login</a>
+            <a href="register.php" id="registoBtn">Registo</a>
+        <?php endif; ?>
     </div>
 </header>

@@ -27,7 +27,7 @@ if ($resProdutos->num_rows > 0) {
     while($produto = $resProdutos->fetch_assoc()){
         echo '<div class="card_sneakers">';
         echo '    <a href="sneakers.php?cod=' . $produto['Codproduto'] . '">';
-        echo '        <img src="images/' . $produto['imagens'] . '" alt="' . $produto['Nome'] . '">';
+        echo '        <img src="images/' . $produto['ImagemRef'] . '" alt="' . $produto['Nome'] . '">';
         echo '        <div class="card_container">';
         echo '            <h4>' . $produto['Nome'] . '</h4>';
         echo '            <h5>' . $produto['Preco'] . '€</h5>';

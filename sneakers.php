@@ -34,9 +34,15 @@ if (isset($_GET['cod'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raining Drip</title>
-    <link rel="stylesheet" href="drip.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link rel="icon" href="images/Design sem nome (6).png">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type='text/javascript' src='js/jquery.touchSwipe.min.js'></script>
+    <script src="js/slideshow.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Sedan+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="drip.css">
 </head>
 <body>
 
@@ -68,7 +74,11 @@ if (isset($_GET['cod'])) {
             </select>
             <br>
             <div>Preço: <?= $produto['Preco'] ?>€</div>
-            <button class="nike-button" type="submit" name="adicionar_ao_carrinho">Adicionar ao Carrinho</button>
+            <div class="text-box">
+            <div class="text-box">
+    <button type="submit" name="adicionar_ao_carrinho" class="btn btn-white btn-animate">Adicionar ao carrinho</button>
+</div>
+</div>
         </form>
     </div>
 </div>
@@ -88,6 +98,8 @@ if (isset($_GET['cod'])) {
 </script>
 
 <?php endif; ?>
-
+<?php
+        include('footer.php');
+    ?>
 </body>
 </html>

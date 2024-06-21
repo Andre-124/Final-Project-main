@@ -25,6 +25,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'remover' && isset($_GET['index']))
     <title>Carrinho</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type='text/javascript' src='js/jquery.touchSwipe.min.js'></script>
+    <link rel="icon" href="images/Design sem nome (6).png">
     <script src="js/slideshow.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +41,7 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'remover' && isset($_GET['index']))
     <h1 style='padding: 20px; padding-bottom: 50px;'>O Seu Carrinho</h1>
     <?php
     if (isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
+        $total = 0;
         foreach ($_SESSION['carrinho'] as $index => $item) {
             echo "<div class='cart-item'>";
             echo "<div class='cart-item-details'>";
@@ -51,13 +53,23 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'remover' && isset($_GET['index']))
             echo "<a href='ver_carrinho.php?acao=remover&index={$index}' class='remove-button'>Remover</a>";
             echo "</div>";
             echo "</div>";
+            $total += $item['preco'];
         }
+
+        echo "<p style=\"font-size: 20px; font-weight: 900;\">Total: $total €</p>";
+    ?>
+        <div class="btnCarrinhos">
+            <a href="Allsneakers.php" class="continue-shopping">Continuar a Comprar</a>
+            <a href="checkout.php" class="continue-shopping">Finalizar compra</a>
+        </div>
+    <?php    
     } else {
         echo "<p>O seu carrinho está vazio</p>";
     }
     ?>
-    <a href="sneakers.php" class="continue-shopping">Continuar a Comprar</a>
 </div>
-
+    <?php
+        include('footer.php');
+    ?>
 </body>
 </html>
