@@ -23,7 +23,7 @@ $resProdutos = $ligacao->query($consulta);
 echo '<h1 id="allsneakers_title">All Sneakers</h1>';
 
 if ($resProdutos->num_rows > 0) {
-    // Output data of each row
+    // Output de data
     while($produto = $resProdutos->fetch_assoc()){
         echo '<div class="card_sneakers">';
         echo '    <a href="sneakers.php?cod=' . $produto['Codproduto'] . '">';
@@ -31,8 +31,6 @@ if ($resProdutos->num_rows > 0) {
         echo '        <div class="card_container">';
         echo '            <h4>' . $produto['Nome'] . '</h4>';
         echo '            <h5>' . $produto['Preco'] . '€</h5>';
-        echo '            <p>' . $produto['Modelo'] . '</p>';
-        echo '            <p>' . $produto['ImagemRef'] . '</p>';
         echo '        </div>';
         echo '    </a>';
         echo '</div>';
@@ -41,6 +39,7 @@ if ($resProdutos->num_rows > 0) {
     echo "No products found.";
 }
 ?>
+
 
 </body>
 </html>

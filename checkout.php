@@ -101,7 +101,7 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
                 </div>
 
                 <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Opcional)</span></label>
+                    <label for="email">Email <span class="text-muted">(Obrigatório)</span></label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                     <div class="invalid-feedback">
                         Introduza um email válido.
@@ -109,7 +109,7 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
                 </div>
 
                 <div class="mb-3">
-                    <label for="address">Endereço</label>
+                    <label for="address">Endereço <span class="text-muted">(Obrigatório)</span></label>
                     <input type="text" class="form-control" id="address" name="address" placeholder="Rua Principal, nº1234" required>
                     <div class="invalid-feedback">
                         Endereço é obrigatório.

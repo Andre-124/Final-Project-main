@@ -23,10 +23,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['adicionar_ao_carrinho'
 
 // Obter o produto da base de dados
 if (isset($_GET['cod'])) {
-    $consulta = "SELECT * FROM produtos WHERE Codproduto=" . $_GET['cod'];
+    $codProduto = $_GET['cod'];
+    $consulta = "SELECT * FROM produtos WHERE Codproduto=" . $codProduto;
     $resProdutos = $ligacao->query($consulta);
     $produto = $resProdutos->fetch_assoc();
 }
+
+// Conexão
+if (!$ligacao) {
+    die("Connection failed: " . $ligacao->connect_error);
+}
+
+// Buscar produtos à base de dados
+$sql = "SELECT Codproduto, Nome, Preco, Modelo, imagens, ImagemRef FROM produtos";
+$result = $ligacao->query($sql);
+
+if ($result === FALSE) {
+    die("Error: " . $sql . "<br>" . $ligacao->error);
+}
+
+$products = [];
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $products[] = $row;
+    }
+}
+
+// Buscar produtos relacionados
+$relatedProductsQuery = "SELECT Codproduto, Nome, Preco, ImagemRef FROM produtos WHERE Codproduto != $codProduto LIMIT 3";
+$relatedProductsResult = $ligacao->query($relatedProductsQuery);
+
+$relatedProducts = [];
+if ($relatedProductsResult->num_rows > 0) {
+    while ($row = $relatedProductsResult->fetch_assoc()) {
+        $relatedProducts[] = $row;
+    }
+}
+
+// Fechar conexão
+$ligacao->close();
 ?>
 <!DOCTYPE html>
 <html lang="pt-PT">
@@ -43,6 +78,8 @@ if (isset($_GET['cod'])) {
     <link href="https://fonts.googleapis.com/css2?family=Goblin+One&family=Sedan+SC&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="drip.css">
+    <!-- Include the ProductViewer CSS file -->
+    <link rel="stylesheet" href="css/product-viewer.css">
 </head>
 <body>
 
@@ -75,31 +112,43 @@ if (isset($_GET['cod'])) {
             <br>
             <div>Preço: <?= $produto['Preco'] ?>€</div>
             <div class="text-box">
-            <div class="text-box">
-    <button type="submit" name="adicionar_ao_carrinho" class="btn btn-white btn-animate">Adicionar ao carrinho</button>
-</div>
-</div>
+                <button type="submit" name="adicionar_ao_carrinho" class="btn btn-white btn-animate">Adicionar ao carrinho</button>
+            </div>
         </form>
     </div>
 </div>
-
+<!-- Include the ProductViewer JS file -->
 <script src="js/product-viewer.js"></script>
 <script>
   var productViewer = new ProductViewer({
     element: document.getElementById('product_viewer'),
-    imagePath: 'images/<?= $produto['imagens'] ?>',
+    imagePath: 'images/<?= $produto['imagens'] ?>', 
     filePrefix: 'img',
-    fileExtension: '.avif'
+    fileExtension: '.avif',
+    numImages: 36
   });
 
-  ProductViewer.once('loaded', function (){
-    ProductViewer.animate360();
-  });
-</script>
+  productViewer.init();
+</script>   
 
+<!-- You May Also Like Section -->
+<section id="sneakers">
+    <h1>Poderá gostar</h1>
+    <div id="cards">
+        <?php foreach ($relatedProducts as $relatedProduct): ?>
+            <div class="card_sneakers">
+                <a href="sneakers.php?cod=<?= $relatedProduct['Codproduto'] ?>">
+                    <img src="images/<?= $relatedProduct['ImagemRef'] ?>" alt="<?= $relatedProduct['Nome'] ?>">
+                    <div class="card_container">
+                        <h4><?= $relatedProduct['Nome'] ?></h4>
+                        <h5><?= $relatedProduct['Preco'] ?>€</h5>
+                    </div>
+                </a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>
 <?php endif; ?>
-<?php
-        include('footer.php');
-    ?>
+<?php include('footer.php'); ?>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('ligacao.php');
 
 $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : '';
@@ -20,9 +21,16 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="drip.css">
 </head>
-</head>
 <body>
     <?php include('cabecalho.php'); ?>
+    
+    <?php
+    // Exibir mensagem de boas-vindas se o usuário estiver logado
+    if (isset($_SESSION['username'])) {
+        echo "<div id='welcome-message' class='alert alert-success' role='alert'>Bem-vindo, " . htmlspecialchars($_SESSION['username']) . "!</div>";
+    }
+    ?>
+
     <section id="inicio"></section>
     <section id="slideshow">
         <img class="mySlides" src="images/1.png" alt="Slideshow Image 1">
@@ -49,8 +57,8 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
                     </a>
                 </div>
             <?php
-    } 
-?>
+            } 
+            ?>
         </div>
     </section>
     <section id="sobrenos">
@@ -63,19 +71,16 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
             </p>
         </div>
     </section>
-    <section id="contactos">
-        <h1>Contactos</h1>
-        <div class="social-icons"> 
-            <i class="fa-solid fa-envelope"></i>
-            <p href="mailto:exemplo@email.com">rainingdrip@email.com </p>
-        
-            <i class="fa-brands fa-whatsapp"></i>
-            <p href="tel:+351912345678">+351 969 314 628 </p>
-        
-            <i class="fa-brands fa-instagram"></i>
-            <p href="https://www.instagram.com/seu_perfil" target="_blank">@raining_drip </p>
-         </div>
-    </section> 
     <?php include('footer.php'); ?>
+
+    <script>
+        // Temporizador para esconder a mensagem de boas-vindas após 5 segundos
+        setTimeout(function() {
+            var welcomeMessage = document.getElementById('welcome-message');
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+        }, 5000);
+    </script>
 </body>
 </html>

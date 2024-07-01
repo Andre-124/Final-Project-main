@@ -15,6 +15,15 @@ function removerDoCarrinho($index) {
 if (isset($_GET['acao']) && $_GET['acao'] == 'remover' && isset($_GET['index'])) {
     removerDoCarrinho($_GET['index']);
 }
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION['userid'])) {
+    echo "<script>
+            alert('Por favor, faça login para acessar o carrinho.');
+            window.location.href = 'login.php';
+          </script>";
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,8 +77,6 @@ if (isset($_GET['acao']) && $_GET['acao'] == 'remover' && isset($_GET['index']))
     }
     ?>
 </div>
-    <?php
-        include('footer.php');
-    ?>
+<?php include('footer.php'); ?>
 </body>
 </html>

@@ -5,12 +5,11 @@ $username = "root";
 $password = ""; 
 $dbname = "raining_drip";
 
-// Conectar ao banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
+$ligacao = new mysqli($servername, $username, $password, $dbname);
 
 // Verificar a conexão
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($ligacao->connect_error) {
+    die("Connection failed: " . $ligacao->connect_error);
 }
 
 // Verificar se o formulário foi enviado
@@ -19,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     // Preparar e vincular a consulta SQL
-    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE username = ?");
+    $stmt = $ligacao->prepare("SELECT id, username, password FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
@@ -51,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Fechar a conexão
-$conn->close();
+$ligacao->close();
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +59,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Raining Drip</title>
-    <link rel="icon" href="images/Design sem nome (6).png">
+    <link rel="icon" href="">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
@@ -141,7 +140,7 @@ header img {
 <body>
 
     <header>
-        <a href="index.php"><img id="logo" src="images/Design sem nome (6).png" alt="Site's logo"></a>
+        <a href="index.php"><img id="logo" src="images/Logo.png" alt="Site's logo"></a>
     </header>
     <div id="Drip_login">
     <section id="login">

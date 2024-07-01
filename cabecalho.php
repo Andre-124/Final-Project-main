@@ -34,10 +34,9 @@ $query = isset($_GET['query']) ? $ligacao->real_escape_string($_GET['query']) : 
 <header>
 <script src="https://kit.fontawesome.com/cc217ac7a1.js" crossorigin="anonymous"></script>
     <ul id="menu">        
-        <li id='logoSite'><a href="index.php#inicio"><img id="logo" src="images/Design sem nome (6).png" alt="Site's logo"></a></li>
+        <li id='logoSite'><a href="index.php#inicio"><img id="logo" src="images/Logo.png" alt="Site's logo"></a></li>
         <li><a href="index.php#sobrenos">Sobre Nós</a></li>
         <li><a href="Allsneakers.php">Sneakers</a></li>
-        <li><a href="index.php#contactos">Contactos</a></li>
     </ul>
 
 
